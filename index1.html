@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Zulm.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/blog-home.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">Top Posts</a>
+                </li>
+                <li>
+                    <a href="#">Newest Posts</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+            <div class="col-xs-6 col-xs-push-5" style="margin-top: 1em; color: #ffffff ">
+                <div id="user" style="display: none;">
+                    <img src="images/user.jpg" style="width: 40px; height: 40px;"> Akram </img>
+                    <button class="btn btn-danger" id="upload">Upload</button>
+                </div>
+                <div id="userEnter">
+                    <button class="btn btn-info" id="signUpButton">Sign Up</button>
+                    <button class="btn btn-info" id="logInButton">Log In</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+
+<div class="container">
+    <!-- uploader popup -->
+    <div id="uploaderPopup" style="display: none;">
+        <form action="demo_form.asp" accept="image/gif, image/jpeg" id="uploadFrom">
+            <h3> Post Your Article</h3>
+
+            <div class="row">
+                <h4>Title: </h4> <input type="text" name="title" id="title"><br>
+                <h4>Photo: </h4> <input type="file" name="pic" id="photo"><br>
+                <h4>Details: </h4> <input type="text" name="details" id="details"><br>
+                <h4>Tags: </h4> <input type="text" name="Tags" id="tags"><br>
+
+                <p>Tags must be comma saperated</p>
+
+                <div id="buttons" align="right">
+                    <button type="button" class=" btn btn-default" id="submit">Submit</button>
+                    <button type="button" class="btn btn-default" id="cancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="success">
+        <h4 id="successMessage">Thank You, Your Post was submitted</h4>
+    </div>
+    <!-- /Uploader popup -->
+    <!-- Sign Up -->
+    <div id="signUpForm" style="display:none;">
+        <form action="demo_form.asp" accept="image/gif, image/jpeg">
+            <h3> Sign Up to Zulm.pk</h3>
+
+            <div class="row">
+                <div>
+                    <h4>Name: </h4> <input type="text" name="Name" id="signUpName"><br>
+                    <h4>Email: </h4> <input type="email" name="Email" id="signUpEmail"><br>
+                    <h4>Password: </h4> <input type="password" name="Email" id="signUpPassword"><br>
+                    <h4>Confirm Password: </h4> <input type="password" name="Email" id="signUpPasswordConfirm"><br>
+                    <h4>Avatar: </h4> <input type="file" name="pic" id="signUpAva"><br>
+                </div>
+                <div id="signUpButtons" style="padding-top: 1em;">
+                    <button type="button" class=" btn btn-default" id="signUpOk">Ok</button>
+                    <button type="button" class="btn btn-default" id="signUpCancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /Sign Up -->
+    <!-- Log In -->
+
+    <div id="logInForm" style="display: none;">
+        <form action="demo_form.asp" accept="image/gif, image/jpeg" class="myForms">
+            <h3> Log in to Zulm.pk</h3>
+
+            <div>
+                <h4>Email: </h4> <input type="email" name="Email" id="logInEmail"><br>
+                <h4>Password: </h4> <input type="password" name="Email" id="logInPassword"><br>
+
+                <div style="padding-top: 1em;">
+                    <button type="button" class=" btn btn-default" id="logInOk">Ok</button>
+                    <button type="button" class="btn btn-default" id="logInCancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /Log In -->
+    <div id="formBackground" style="display: none">
+    </div>
+    <!-- main Contnent -->
+    <div id="mainContnent">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+                <h1 class="page-header">
+                    Join hands to stop injustice
+                    <small>آئے مل کر ظلم کا مقابلہ کریں</small>
+                </h1>
+                <!-- First Blog Post -->
+                <h3>
+                    <a href="postDetails.html">First Post</a>
+                </h3>
+
+                <p>
+                    by <a href="index.php">Akram</a>
+                </p>
+
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+                <hr>
+                <a href="postDetails.html">
+                    <img class="img-responsive" src="images/img01.jpg" alt="">
+                </a>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus
+                    inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis
+                    ipsum
+                    officiis rerum.</p>
+                <a class="btn btn-primary highlight" href="#">Highlight <span
+                        class="glyphicon glyphicon glyphicon-warning-sign"></span></a>
+                <a class="btn btn-primary" href="postDetails.html">Details<span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                <!-- Second Blog Post -->
+                <h2>
+                    <a href="#">Second Post</a>
+                </h2>
+
+                <p class="lead">
+                    by <a href="index.php">Aslam</a>
+                </p>
+
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <a href="postDetails.html">
+                    <img class="img-responsive" src="images/img02.jpg" alt="">
+                </a>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum
+                    voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum
+                    perferendis labore impedit voluptates!</p>
+                <a class="btn btn-primary" href="#">Details <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary highlight" href="#">Highlight <span
+                        class="glyphicon glyphicon glyphicon-warning-sign"></span></a>
+
+
+                <hr>
+
+                <!-- Third Blog Post -->
+                <h2>
+                    <a href="#">Third Post</a>
+                </h2>
+
+                <p class="lead">
+                    by <a href="index.php">Mushtaq</a>
+                </p>
+
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <a href="postDetails.html">
+                    <img class="img-responsive" src="images/img03.jpg" alt="">
+                </a>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore
+                    ipsam
+                    cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident
+                    id
+                    incidunt autem. Magni, ratione.</p>
+                <a class="btn btn-primary" href="#">Details <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary highlight" href="#">Highlight <span
+                        class="glyphicon glyphicon glyphicon-warning-sign"></span></a>
+
+                <hr>
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Zulm.com 2014</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
+<!-- uploader popup-->
+<section id="upload-file">
+    <form id="form-modal-post-image" class="modal" action="/submit" enctype="multipart/form-data" method="POST"
+          onsubmit="return GAG.UploadController.validateForm();">
+        <input type="hidden" name="type" value="Photo">
+        <input type="hidden" id="csrftoken" name="csrftoken" value="">
+        <input id="post_type" type="hidden" name="post_type" value="Photo">
+
+        <div id="jsid-disable-mask">
+            <h2>Post a fun</h2>
+
+            <p class="lead">Upload funny pictures, paste pictures URL, accepting GIF/JPG/PNG (Max size: 3MB)</p>
+
+            <div class="field photo">
+                <label style="display:none;">
+                    <a id="jsid-upload-url-btn" class="" href="javascript:void(0);">Paste URL</a> /
+                    <a id="jsid-upload-file-btn" class="upload-selected" href="javascript:void(0);">Upload File</a>
+                </label>
+                <input id="jsid-upload-url-input" class="hide" type="url" name="url" placeholder="http://" value="">
+
+                <div id="jsid-upload-file-input" class="file-field">
+                    <input class="file text" type="file" name="image" accept="image/gif,image/jpeg,image/jpg,image/png">
+                </div>
+                <p id="jsid-upload-content-error" class="error-message hide"></p>
+            </div>
+            <div class="field title">
+                <label>Title</label>
+
+                <p id="jsid-char-count" class="count ">120</p>
+                <textarea id="jsid-upload-title" name="title" data-maxlength="120"></textarea>
+
+                <p id="jsid-upload-title-error" class="error-message hide"></p>
+            </div>
+
+            <div class="field section-picker">
+                <ul id="jsid-section-list" class="section-list" data-sections-count-max="5">
+                    <li><label class=""><input type="checkbox" name="section[]" value="halloween"
+                                               class="badge-upload-section"> <span class="name">Halloween</span></label>
+                    </li>
+                </ul>
+                <p id="jsid-upload-section-error" class="error-message hide"></p>
+            </div>
+
+            <div class="field checkbox">
+                <label id="jsid-source-checkbox-label"><input type="checkbox" id="jsid-source-checkbox"> Attribute
+                    original creator</label>
+                <input id="jsid-source-input" type="text" class="text hide" name="source" value=""
+                       placeholder="http://">
+            </div>
+
+            <div class="btn-container">
+                <input id="jsid-submit-btn" type="submit" value="Upload">
+            </div>
+
+            <div id="spinner-here" class="disabled-mask"></div>
+        </div>
+
+
+    </form>
+</section>
+
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/uploaderPopup.js"></script>
+<script>
+
+</script>
+</body>
+
+</html>
